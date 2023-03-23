@@ -1,4 +1,4 @@
-import React, {usaState, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {shuffle, questions} from '../../database/questions.js';
 import './styles.css';
@@ -13,6 +13,9 @@ function Game(params) {
         if(questionSelected.length >0)
             return;
         const shuffledQuestions = shuffle(questions);
+        const selectedQuestions = shuffledQuestions.slice(0,5);
+        setQuestionSelected(selectedQuestions);
+
         console.log(shuffledQuestions);
 
     },[questionSelected]);
