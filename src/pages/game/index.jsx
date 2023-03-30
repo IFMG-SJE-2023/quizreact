@@ -3,11 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import {shuffle, questions} from '../../database/questions.js';
 import './styles.css';
 import LogoQuiz from '../../assets/images/quiz.png'
+import Score from '../score'
+
+
 function Game(params) {
     const navigate = useNavigate();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [questionSelected, setQuestionSelected] = useState([]);
-    const [userAnswer, setUserAnswer] = useState([]);
+    const [userAnswer, setUserAnswer] = useState([]); // resposta
+    const [finish, setFinish] = useState(false); //quando der 5 perguntas
+
 
     useEffect(() => {
         if(questionSelected.length >0)
@@ -16,9 +21,11 @@ function Game(params) {
         const selectedQuestions = shuffledQuestions.slice(0,5);
         setQuestionSelected(selectedQuestions);
 
-        console.log(shuffledQuestions);
+        //console.log(shuffledQuestions);
 
     },[questionSelected]);
+
+    function handleAns(index) 
 
     return (
         <div className="container">
