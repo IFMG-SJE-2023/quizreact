@@ -25,7 +25,7 @@ function Score({score }) {
             <img className="logo" src={LogoQuiz} alt="Quiz" />
             <small className="description">{score ? messages[score]  : messages[5]}</small>
             <div className="score-container">
-                    <big className="score">{score ? score ? 5}</big>
+                    <big className="score">{score ? score : 5}</big>
                     <small className="total">/5</small>
             </div>
         
